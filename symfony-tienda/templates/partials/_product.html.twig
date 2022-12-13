@@ -1,0 +1,12 @@
+
+<div class="pb-5">
+    <div class="product-item position-relative bg-light d-flex flex-column text-center">
+        <img class="img-fluid mb-4" src="{{ asset('img/' ~ products.photo) }}" alt="">
+        <h6 class="text-uppercase">{{ products.name }}</h6>
+        <h5 class="text-primary mb-0">{{ products.price }}€</h5>
+        <div class="btn-action d-flex justify-content-center">
+            <a class="btn btn-primary py-2 px-3 open-cart-fade" data-id="{{products.id}}"><i class="bi bi-cart"></i></a>
+            <a class="btn btn-primary py-2 px-3 open-info-product" data-id="{{products.id}}"><i class="bi bi-eye"></i></a>
+        </div>
+    </div>
+</div>

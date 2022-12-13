@@ -1,0 +1,24 @@
+ {% extends 'base.html.twig' %}
+
+{% block title %}Producto{% endblock %}
+
+{% block body %}
+ <!-- Products Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+                <h6 class="text-primary text-uppercase">Products</h6>
+                <h1 class="display-5 text-uppercase mb-0">Products For Your Best Friends</h1>
+            </div>
+            <div class="owl-carousel product-carousel">
+                {% for products in product %}
+                    {{include ("partials/_product.html.twig", {"products":products} )}}
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+    <!-- Products End -->
+    {{include ("partials/_infoProducto.html.twig")}}
+    {{include ("partials/_cartModal.html.twig")}}
+{% endblock %}

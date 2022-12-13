@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+{% block body %}
+    {% if not post %}
+        <h2>Post not found<h2>
+    {% else %} 
+    <div class="row">
+        <div class="col" style="margin:50px; background-color:white; width: 550px; height:650px;">
+            <h2>{{post.title}}</h2><br>
+            <img src="{{ asset('images/index/gallery/' ~ post.image) }}" alt="{{post.title}}" margin="50px" >
+            <p>{{post.content}}</p>
+            <h4>- By {{ post.postUser.name}}</h4>
+            <hr>
+            <ul >
+                <li style="display:inline;">{{ post.publishedAt | date('d') }} {{ post.publishedAt | date('F') }}</li>
+                <li style="display:inline;"><a href="{{ path('post_like', {slug: post.slug}) }}">LIKE</a> <i class="fa fa-heart sr-icons"></i> {{post.numLikes}}</li>
+                <li style="display:inline;"><a class="page-scroll" href="#form">COMMENT</a> <i class="fa fa-comments sr-icons"></i> {{post.numComments}} |</li>
+            </ul>
+
+            
+        </div>
+        <div class="col"> 
+            {% for recent in recents %}
+                {{ include ('partials/_recent_post.html.twig', {'recent': recent}) }}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row" style="color:white;">
+        {{ include ('partials/_form_comment.html.twig') }}
+    </div>
+         
+    {% endif %}
+
+{% endblock %}

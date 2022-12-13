@@ -1,0 +1,21 @@
+<nav class="navigation navbar navbar-expand-md navbar-dark ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+             <li class="{{ (app.request.attributes.get('_route') == 'index')  ? 'active': ''}} lien"><a class="nav-link" href="{{ path('index') }}"> Home</a></li>
+              <li class="{{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}} lien"><a class="nav-link" href="{{ path('about') }}"> About</a></li>
+              <li class="{{ (app.request.attributes.get('_route') == 'blog')  ? 'active': ''}} lien"><a class="nav-link" href="{{ path('blog') }}">Blog</a></li>
+              <li class="{{ (app.request.attributes.get('_route') == 'contact' or app.request.attributes.get('_route') == '`single_post`')  ? 'active': ''}} lien"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
+              {% if app.user %}
+               
+                <li><a class="nav-link" href="{{ path('app_logout') }}"> {{ app.user.name }} - Logout</a></li>
+                <li><a class="nav-link" href="{{ path('new_post') }}"> New post</a></li>
+              {% else %}
+                <li class="{{ (app.request.attributes.get('_route') == 'app_login')  ? 'active': ''}} lien"><a class="nav-link" href="{{ path('app_login') }}"> Login</a></li>
+                <li class="{{ (app.request.attributes.get('_route') == 'app_register')  ? 'active': ''}} "><a class="nav-link" href="{{ path('app_register') }}"> Register</a></li>
+              {% endif %}
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<div id="contact" class="contact" style="color:white;">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Contact us</h2>
+                     <span>There are many variations of passages of Lorem Ipsum available, but the </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 ">
+               {{ form_start(form, {'attr': {'class':'form-horizontal'}}) }}
+                  {{ form_errors(form) }}
+                     <div class="row">
+                        <div class="col-md-12 ">
+                            {{ form_row(form.nombre, {'attr': {'class':'form-control'}}) }}
+                        </div>
+                        <div class="col-md-12">
+                            {{ form_row(form.telefono, {'attr': {'class':'form-control'}}) }}
+                        </div>
+                        <div class="col-md-12">
+                           {{ form_row(form.email, {'attr': {'class':'form-control'}}) }}
+                        </div>
+                        <div class="col-md-12">
+                           {{ form_row(form.mensage, {'attr': {'class':'form-control'}}) }}
+                           {{ form_row(form.Send, {'attr': {'class':'pull-right btn btn-lg sr-button'}}) }}
+                        </div>
+                     </div>
+                  {{ form_end(form) }}
+               </div>
+            </div>
+         </div>
+      </div>
+{% endblock %}
+
+
