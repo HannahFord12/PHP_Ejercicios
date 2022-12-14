@@ -24,4 +24,8 @@ class CartService{
             $cart[$id] = $quantity;
         $this->getSession()->set(self::KEY, $cart);
     }
+    public function update(int $id, int $quantity = 1){
+	
+    }    
+
 }

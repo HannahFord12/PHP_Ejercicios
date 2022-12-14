@@ -91,4 +91,5 @@ class PageController extends AbstractController
     public function contact():Response{
         return $this->render('page/contact.html.twig', []);
     }
+    
 }

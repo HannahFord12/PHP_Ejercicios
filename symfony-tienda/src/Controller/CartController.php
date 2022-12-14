@@ -23,6 +23,27 @@ class CartController extends AbstractController
         $this->repository = $doctrine->getRepository(Product::class);
         $this->cart = $cart;
     }
+    #[Route('/', name: 'app_cart')]
+    public function index(): Response
+    {
+        $products = $this->repository->getFromCart($this->cart);
+        //hay que añadir la cantidad de cada producto
+        $items = [];
+        $totalCart = 0;
+        foreach($products as $product){
+            $item = [
+                "id"=> $product->getId(),
+                "name" => $product->getName(),
+                "price" => $product->getPrice(),
+                "photo" => $product->getPhoto(),
+                "quantity" => $this->cart->getCart()[$product->getId()]
+            ];
+            $totalCart += $item["quantity"] * $item["price"];
+            $items[] = $item;
+        }
+
+        return $this->render('cart/index.html.twig', ['items' => $items, 'totalCart' => $totalCart]);
+    }
 
 
     #[Route('/add/{id}', name: 'cart_add', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
@@ -45,4 +66,7 @@ class CartController extends AbstractController
 
     }
 }
+
+
+
 
