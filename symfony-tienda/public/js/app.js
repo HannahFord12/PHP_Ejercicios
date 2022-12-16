@@ -44,4 +44,17 @@
   $(".closeCart").click(function(e){
       cartModal.modal('hide');
   })
+  
+  $( "a.remove-item" ).click(function(event) {
+    event.preventDefault();
+    const id = $( this ).attr('data-id');
+    const href = `/cart/delete/${id}`;
+    $.post( href, function(data) {
+      totalItems.text(data.totalItems);
+      $( "#totalCart" ).text(new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(data.total));  
+      //Ahora eliminanos el contenedor del producto
+      $(`#item-${id}`).hide('slow', function(){ $(`#item-${id}`).remove(); });
+    })
+  });
+
 })();
