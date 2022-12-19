@@ -16,7 +16,7 @@
     </div>
     <a href="{{ path('app_cart')}}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'cart')  ?'active': ''}}" >Cart </a>
      {% if app.user %}    
-        <li><a class="nav-link" href="{{ path('app_logout') }}"> Logout</a></li>
+        <li><a class="nav-link" href="{{ path('app_logout') }}">{{app.user.email}} Logout</a></li>
     {% else %}
         <li class="{{ (app.request.attributes.get('_route') == 'app_login')  ? 'active': ''}} lien"><a class="nav-link" href="{{ path('app_login') }}"> Login</a></li>
         <li class="{{ (app.request.attributes.get('_route') == 'app_register')  ? 'active': ''}} "><a class="nav-link" href="{{ path('app_register') }}"> Register</a></li>
