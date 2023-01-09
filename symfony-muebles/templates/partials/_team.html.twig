@@ -1,0 +1,25 @@
+  <!-- Team Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+                
+            </div>
+            <div class="owl-carousel team-carousel position-relative" style="padding-right: 25px;">
+             {% for teamMember in team %}
+                <div class="fh5co-staff">
+                    <img src="{{ asset('images/' ~ teamMember.photo) }}" alt="Free HTML5 Templates by gettemplates.co">
+                    <h3>{{teamMember.nombre}}</h3>
+                    <strong class="role">{{teamMember.cargo}}</strong>
+                    <p>{{teamMember.description}}</p>
+                    <ul class="fh5co-social-icons">
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                        <li><a href="#"><i class="icon-github"></i></a></li>
+                    </ul>
+				</div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
