@@ -17,9 +17,10 @@ class TeamCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            Field::new('name'),
-            ImageField::new('photo')->setUploadDir('/public/img')->setBasePath('/img/'),
-            Field::new('designation')
+            Field::new('nombre'),
+            ImageField::new('photo')->setUploadDir('/public/images')->setBasePath('/img/'),
+            Field::new('cargo'),
+            Field::new('description'),
         ];
     }
 }

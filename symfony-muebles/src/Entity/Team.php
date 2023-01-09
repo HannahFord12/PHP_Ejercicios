@@ -25,18 +25,6 @@ class Team
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $foto = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $descripcion = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $puesto = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -90,7 +78,7 @@ class Team
         return $this;
     }
 
-    public function getName(): ?string
+    /*public function getName(): ?string
     {
         return $this->name;
     }
@@ -136,5 +124,5 @@ class Team
         $this->puesto = $puesto;
 
         return $this;
-    }
+    }*/
 }
