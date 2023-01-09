@@ -19,7 +19,7 @@ class Producto
     #[ORM\Column(length: 255)]
     private ?string $photo = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column]
     private ?string $price = null;
 
     #[ORM\Column(length: 255)]
@@ -59,7 +59,7 @@ class Producto
         return $this->price;
     }
 
-    public function setPrice(string $price): self
+    public function setPrice(int $price): self
     {
         $this->price = $price;
 

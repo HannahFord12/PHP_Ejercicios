@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Team;
+use App\Entity\Producto;
 
 class PageController extends AbstractController
 {
@@ -22,9 +23,12 @@ class PageController extends AbstractController
         return $this->render('page/index.html.twig', []);
     }
     #[Route('/product', name: 'product')]
-    public function product(): Response{
-        return $this->render('page/product.html.twig', []);
+    public function product(ManagerRegistry $doctrine): Response{
+        $repository = $doctrine->getRepository(Producto::class);
+        $product =$repository->findAll();
+        return $this->render('page/product.html.twig', compact('product'));
     }
+    
     #[Route('/single', name: 'single')]
     public function single(): Response{
         return $this->render('page/single.html.twig', []);
