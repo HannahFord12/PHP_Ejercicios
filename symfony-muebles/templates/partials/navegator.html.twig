@@ -14,14 +14,9 @@
                 <li><a href="{{ path('about') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}}">About</a></li>
                 <li class="has-dropdown">
                     <a href="{{ path('service') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'service')  ? 'active': ''}}">Services</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">eCommerce</a></li>
-                        <li><a href="#">Branding</a></li>
-                        <li><a href="#">API</a></li>
-                    </ul>
                 </li>
                 <li><a href="{{ path('contact') }}" "nav-item nav-link {{ (app.request.attributes.get('_route') == 'contact')  ? 'active': ''}}">Contact</a></li>
+                <li><a href="{{ path('app_car') }}" "nav-item nav-link {{ (app.request.attributes.get('_route') == 'app_car')  ? 'active': ''}}">Carrito</a></li>
             </ul>
         </div>
         <div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
