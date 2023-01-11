@@ -19,8 +19,10 @@ class PageController extends AbstractController
         ]);
     }*/
     #[Route('/', name: 'index')]
-    public function index():Response{
-        return $this->render('page/index.html.twig', []);
+    public function index(ManagerRegistry $doctrine): Response{
+        $repository = $doctrine->getRepository(Producto::class);
+        $product =$repository->findAll();
+        return $this->render('page/index.html.twig', compact('product'));
     }
     #[Route('/product', name: 'product')]
     public function product(ManagerRegistry $doctrine): Response{
