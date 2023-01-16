@@ -1,0 +1,29 @@
+<div class="logo">
+    <i class="fa fa-plane" aria-hidden="true"><span>Travel</span></i>
+  </div>
+  <a class="menu-toggle rounded" href="#">
+    <i class="fa fa-bars"></i>
+  </a>
+<nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="{{ path('index') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'index')  ? 'active': ''}}">Home</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="{{ path('mapa') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'mapa')  ? 'active': ''}}">Mapa</a>
+      </li>
+      </li>
+      <li class="sidebar-nav-item">
+        <a href="{{ path('contact') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'contact')  ? 'active': ''}}">Conatct</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="smooth-scroll" href="#Portfolio">Portfolio</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="smooth-scroll" href="#Testimonials">Testimonials</a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a class="smooth-scroll" href="#Contact">Contact</a>
+      </li>
+    </ul>
+  </nav>

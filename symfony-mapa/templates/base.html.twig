@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+ <title>{% block title %}Travel {% endblock %}</title>
+  <!--stylesheet-->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="{{asset('styles/styles.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{asset('styles/custom-responsive-styles.css')}}" rel="stylesheet" type="text/css">
+  <!--Mapa-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+</head>
+
+<body id="page-top">
+  <!-- Navigation -->
+  {{include ('partials/navegator.html.twig')}}
+  <section id="Banner" class="content-section">
+    <div class="container content-wrap text-center">
+      <h1>Mis viajes</h1>
+      <h3>
+          <em>Personaliza tu mapa</em>
+        </h3>
+      <a class="btn btn-primary btn-xl smooth-scroll" href="#About">Find Out More</a>
+    </div>
+    <div class="overlay"></div>
+  </section>
+  {% block body %}{% endblock %}
+  <!-- Header Starts -->
+  
+  <footer class="footer text-center">
+    <div class="container">
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="javascript:void(0)">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white mr-3" href="javascript:void(0)">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="social-link rounded-circle text-white" href="javascript:void(0)">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+        </li>
+      </ul>
+      <p class="text-muted small mb-0">Copyright © Your Website 2018</p>
+      <p class="text-muted small mb-0">Designed by <a href="https://www.position2.com/" target="_balnk">Position2</p>
+    </div>
+  </footer>
+  <!--scripts-->
+  <script type="text/javascript" src="{{asset('scripts/jquery-3.2.1.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('scripts/all-plugins.js')}}"></script>
+  <script type="text/javascript" src="{{asset('scripts/plugins-activate.js')}}"></script>
+  <script type="text/javascript" src="{{asset('scripts/map.js')}}"></script>
+</body>
+
+</html>

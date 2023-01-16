@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+ <section id="Contact" class="content-section">
+    <div class="container">
+      <div class="block-heading">
+        <h2>Contact Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="contact-wrapper">
+            <div class="address-block border-bottom">
+              <h3 class="add-title">Headquaters</h3>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span><span class="c-info">&nbsp;35 Street - Cheyenne, CO 80810</span>
+              </div>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-phone" aria-hidden="true"></i></span><span class="c-info">+123 4567 898</span>
+              </div>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span><span class="c-info">email@yourdomain.com</span>
+              </div>
+            </div>
+            <div class="address-block">
+              <h3 class="add-title">Branch</h3>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span><span class="c-info">&nbsp;98 Berry - Cheyenne, CO 80810</span>
+              </div>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-phone" aria-hidden="true"></i></span><span class="c-info">+123 4567 8987</span>
+              </div>
+              <div class="c-detail">
+                <span class="c-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span><span class="c-info">email@yourdomain.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="form-wrap"><div class="col-sm-12 col-md-6 col-lg-6">
+          <div class="form-wrap">
+            <form action="javascript:void(0)" method="post">
+             {{ form_start(form, {'attr': {'class':'form-horizontal'}}) }}
+            {{ form_errors(form) }}
+              <div class="fname floating-label">
+                {{ form_row(form.firstName, {'attr': {'class':'form-control'}}) }}
+              </div>
+              <div class="fname floating-label">
+               {{ form_row(form.lastName, {'attr': {'class':'form-control'}}) }}
+              </div>
+              <div class="email floating-label">
+                {{ form_row(form.email, {'attr': {'class':'form-control'}}) }}
+              </div>
+              <div class="contact floating-label">
+                 {{ form_row(form.text, {'attr': {'class':'form-control'}}) }}
+              </div>
+              <div class="company floating-label">
+                {{ form_row(form.message, {'attr': {'class':'form-control'}}) }}
+                        
+              </div>
+              <div class="submit-btn">
+               {{ form_row(form.Send, {'attr': {'class':'pull-right btn btn-lg sr-button'}}) }}
+              </div>
+              {{ form_end(form) }}
+            </form>
+            
+                    </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
