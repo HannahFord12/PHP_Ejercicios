@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ContactFormType;
 use App\Entity\Contact;
+use App\Entity\Puntos;
 
 class PageController extends AbstractController
 {
@@ -20,11 +21,10 @@ class PageController extends AbstractController
         ]);
     }
     #[Route('/mapa', name: 'mapa')]
-    public function mapa(): Response
-    {
-        return $this->render('page/mapa.html.twig', [
-            'controller_name' => 'PageController',
-        ]);
+    public function mapa(ManagerRegistry $doctrine): Response{
+        $repository = $doctrine->getRepository(Puntos::class);
+        $puntos =$repository->findAll();
+        return $this->render('page/mapa.html.twig', compact('puntos'));
     }
     #[Route('/contact', name: 'contact')]
     public function contact(ManagerRegistry $doctrine, Request $request): Response
