@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +26,21 @@ class PageController extends AbstractController
         $repository = $doctrine->getRepository(Puntos::class);
         $puntos =$repository->findAll();
         return $this->render('page/mapa.html.twig', compact('puntos'));
+    }
+    #[Route('/points', name: 'points')]
+    public function points(ManagerRegistry $doctrine): JsonResponse{
+        $repository = $doctrine->getRepository(Puntos::class);
+        $puntos =$repository->findAll();
+        $data = [];
+        foreach($puntos as $punto){
+            $item = [
+                "id"=> $punto->getId(),
+                "latitud"=>$punto->getLatitud(),
+                "longitud"=>$punto->getLongitud()
+            ];
+            $data[] = $item;
+        }
+        return new JsonResponse($data, Response::HTTP_OK);
     }
     #[Route('/contact', name: 'contact')]
     public function contact(ManagerRegistry $doctrine, Request $request): Response

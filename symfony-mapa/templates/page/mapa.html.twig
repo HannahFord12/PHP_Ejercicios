@@ -4,10 +4,7 @@
 
 {% block body %}
 <div id="map" style="width: 600px; height: 400px;">
-   {% for punto in puntos %}
-    <p {{punto.latitud}}></p>
-    <p {{punto.longitud}}></p>   
-   {% endfor %}
+
 </div>
 <script type="text/javascript" src="{{asset('scripts/map.js')}}"></script>
 {% endblock %}

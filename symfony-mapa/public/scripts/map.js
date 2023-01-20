@@ -31,9 +31,18 @@ map.on('click', onMapClick);
 L.control.zoom({
     position: 'bottomright'
 }).addTo(map);
-/*function enMapa(e){
-    
-    var marker = L.marker([punto.latitud, punto.longitud]).addTo(map);
+/*Al hacer el mapa grande*/
+function showMap(e){
+    //var mapa='https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+    //var mapa=L.conrol.zoom.getPosition();
+    var mapa=map.getBounds();
+    const href='/points';
+    $.get(href, function(data){
+        data.forEach(function(item){
+            console.log(mapa);
+            console.log(item);
+            L.marker([item.latitud, item.longitud]).addTo(map);
+        })
+    })
 }
-
-map.on('zoom', enMapa)*/
+map.on('zoom',showMap);
